@@ -9,6 +9,15 @@
       Title="BemVindo">
 
     <Grid Background="White">
-        
+        <Image x:Name="img_bemvindo" HorizontalAlignment="Left" Height="437" Margin="5,4,0,0" VerticalAlignment="Top" Width="786" Source="/Quiz Senac 2025 (4).png"/>
+        <Button x:Name="btn_iniciar" Content="Iniciar" HorizontalAlignment="Left" Margin="286,327,0,0" VerticalAlignment="Top" Height="79" Width="223" FontSize="24" FontFamily="Sans Serif Collection" Foreground="#FF123D70" FontWeight="Bold" BorderBrush="White">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="#FFFF9100" Offset="0.819"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
     </Grid>
 </Page>
