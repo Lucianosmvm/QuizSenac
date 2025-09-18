@@ -10,10 +10,12 @@
 
   <ItemGroup>
     <None Remove="Quiz Senac 2025 %284%29.png" />
+    <None Remove="Quiz Senac 2025 %285%29.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Quiz Senac 2025 (4).png" />
+    <Resource Include="Quiz Senac 2025 (5).png" />
   </ItemGroup>
 
 </Project>
