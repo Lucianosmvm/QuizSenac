@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace QuizSenac
 {
     /// <summary>
-    /// Interação lógica para Pergunta1.xam
+    /// Interação lógica para Pergunta2.xam
     /// </summary>
-    public partial class Pergunta1 : Page
+    public partial class Pergunta2 : Page
     {
-        public Pergunta1()
+        public Pergunta2()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

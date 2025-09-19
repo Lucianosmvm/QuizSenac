@@ -28,8 +28,15 @@ namespace QuizSenac
 
         private void btn_iniciar_Click(object sender, RoutedEventArgs e)
         {
+//<<<<<<< HEAD
             NavigationService.Navigate(new Login());
 
+//=======
+            ConexaoDB.AbrirConexao();
+
+            if (ConexaoDB.Conexao != null && ConexaoDB.Conexao.State == System.Data.ConnectionState.Open)
+                NavigationService.Navigate(new Login());
+//>>>>>>> cb1873074b2250e36b22dce954e8eeaf54befc46
         }
     }
 }

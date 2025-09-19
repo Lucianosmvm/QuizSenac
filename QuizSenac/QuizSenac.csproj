@@ -12,6 +12,11 @@
     <None Remove="Quiz Senac 2025 %284%29.png" />
     <None Remove="Quiz Senac 2025 %285%29.png" />
     <None Remove="Quiz Senac 2025 %286%29.png" />
+    <None Remove="Quiz Senac 2025 %287%29.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="9.4.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +27,7 @@
     <Resource Include="Quiz Senac 2025 (4).png" />
     <Resource Include="Quiz Senac 2025 (5).png" />
     <Resource Include="Quiz Senac 2025 (6).png" />
+    <Resource Include="Quiz Senac 2025 (7).png" />
   </ItemGroup>
 
 </Project>
