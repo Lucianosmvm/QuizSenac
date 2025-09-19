@@ -11,8 +11,8 @@
     <Grid>
         <Image x:Name="img_login" Height="420" Margin="5,6,9,0" VerticalAlignment="Top" Source="/Quiz Senac 2025 (5).png"/>
         <Label x:Name="lab_nome" Content="Nome:" HorizontalAlignment="Left" Margin="299,139,0,0" VerticalAlignment="Top" FontFamily="Sans Serif Collection" FontSize="20" Width="115" Foreground="#FF123D70" FontWeight="Bold" Height="46"/>
-        <TextBox x:Name="txb_nome" HorizontalAlignment="Center" Margin="0,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Height="36" BorderBrush="#FFF09C20" FontSize="20" FontFamily="Sans Serif Collection"/>
-        <Button x:Name="btn_login" Content="Entrar" HorizontalAlignment="Center" Margin="0,259,0,0" VerticalAlignment="Top" Height="63" Width="172" FontSize="24" FontFamily="Sans Serif Collection" Foreground="#FF123D70" FontWeight="Bold" BorderBrush="White">
+        <TextBox x:Name="txb_nome" HorizontalAlignment="Center" Margin="0,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Height="36" BorderBrush="#FFF09C20" FontSize="20" FontFamily="Sans Serif Collection" TextChanged="txb_nome_TextChanged"/>
+        <Button x:Name="btn_login" Content="Entrar" HorizontalAlignment="Center" Margin="0,259,0,0" VerticalAlignment="Top" Height="63" Width="172" FontSize="24" FontFamily="Sans Serif Collection" Foreground="#FF123D70" FontWeight="Bold" BorderBrush="White" Click="btn_login_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="White"/>

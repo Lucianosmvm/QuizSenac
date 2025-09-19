@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace QuizSenac
 {
     /// <summary>
@@ -23,6 +24,12 @@ namespace QuizSenac
         public BemVindo()
         {
             InitializeComponent();
+        }
+
+        private void btn_iniciar_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Login());
+
         }
     }
 }

@@ -24,5 +24,15 @@ namespace QuizSenac
         {
             InitializeComponent();
         }
+
+        private void btn_login_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new BemVindo());
+        }
+
+        private void txb_nome_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
     }
 }
