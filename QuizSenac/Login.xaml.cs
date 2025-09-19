@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,12 @@ namespace QuizSenac
 
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
+            string sql = "select * from Perguntas";
 
+            MySqlCommand cmd = new MySqlCommand(sql, ConexaoDB.Conexao);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            MessageBox.Show("Perunta: " + reader["Pergunta"]);
         }
     }
 }
