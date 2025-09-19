@@ -16,6 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="9.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Quiz Senac 2025 (4).png" />
     <Resource Include="Quiz Senac 2025 (5).png" />
     <Resource Include="Quiz Senac 2025 (6).png" />
