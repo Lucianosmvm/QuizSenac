@@ -36,13 +36,17 @@ namespace QuizSenac
         {
             
 //=======
-            string sql = "select * from Perguntas";
+
+            string sql = "select * from perguntas";
 
             MySqlCommand cmd = new MySqlCommand(sql, ConexaoDB.Conexao);
             MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+                MessageBox.Show("Pergunta: " + reader["Pergunta"]);
 
-            MessageBox.Show("Perunta: " + reader["Pergunta"]);
-//>>>>>>> cb1873074b2250e36b22dce954e8eeaf54befc46
+
+
+
         }
     }
 }

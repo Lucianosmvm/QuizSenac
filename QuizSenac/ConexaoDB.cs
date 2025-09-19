@@ -7,7 +7,7 @@ namespace QuizSenac
     {
         public static MySqlConnection? Conexao { get; private set; }
 
-        public static void AbrirConexao()
+        public static void AbrirConexao(string v)
         {
             try
             {
