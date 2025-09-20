@@ -29,7 +29,7 @@ namespace QuizSenac
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
 //<<<<<<< HEAD
-            NavigationService.Navigate(new BemVindo());
+            NavigationService.Navigate(new Pergunta1());
         }
 
         private void txb_nome_TextChanged(object sender, TextChangedEventArgs e)
@@ -37,15 +37,15 @@ namespace QuizSenac
             
 //=======
 
-            string sql = "select * from perguntas";
+            //string sql = "select * from perguntas";
 
-            MySqlCommand cmd = new MySqlCommand(sql, ConexaoDB.Conexao);
-            MySqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-                MessageBox.Show("Pergunta: " + reader["Pergunta"]);
+            //MySqlCommand cmd = new MySqlCommand(sql, ConexaoDB.Conexao);
+            //MySqlDataReader reader = cmd.ExecuteReader();
+            //while (reader.Read())
+            //    MessageBox.Show("Pergunta: " + reader["Pergunta"]);
 
 
-
+            
 
         }
     }

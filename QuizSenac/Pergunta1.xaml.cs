@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace QuizSenac
 {
@@ -23,6 +24,26 @@ namespace QuizSenac
         public Pergunta1()
         {
             InitializeComponent();
+
+            // Consulta para obter a pergunta
+            string sql = $"select Pergunta from perguntas where PerguntasID = {1}";
+            MySqlCommand cmd = new MySqlCommand(sql, ConexaoDB.Conexao);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                txt_pergunta.Text = reader["Pergunta"].ToString();
+            }
+            reader.Close();
+
+            // Consulta para obter a alternativa A
+            string sqlA = $"select opA from perguntas where PerguntasID = {1}";
+            MySqlCommand cmdA = new MySqlCommand(sqlA, ConexaoDB.Conexao);
+            MySqlDataReader readerA = cmdA.ExecuteReader();
+            if (readerA.Read())
+            {
+                alternativa_A.Text = readerA["opA"].ToString();
+            }
+            readerA.Close();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

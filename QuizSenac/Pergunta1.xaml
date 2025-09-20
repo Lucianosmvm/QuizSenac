@@ -11,7 +11,7 @@
     <Grid>
         <Image x:Name="img_per1" HorizontalAlignment="Left" Height="443" Margin="1,2,0,0" VerticalAlignment="Top" Width="794" Source="/Quiz Senac 2025 (6).png"/>
         <Label x:Name="lab_per1" Content="Pergunta 1" HorizontalAlignment="Left" Margin="35,41,0,0" VerticalAlignment="Top" Height="56" Width="243" Foreground="#FF103F6B" FontSize="24" FontFamily="Sans Serif Collection" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="44,111,0,0" TextWrapping="Wrap" Text="pergunta" VerticalAlignment="Top" Height="48" Width="361" FontSize="20" FontFamily="Sans Serif Collection"/>
+        <TextBlock x:Name="txt_pergunta" HorizontalAlignment="Left" Margin="44,111,0,0" TextWrapping="Wrap" Text="pergunta" VerticalAlignment="Top" Height="48" Width="361" FontSize="20" FontFamily="Sans Serif Collection"/>
         <Button  Height="40"  BorderThickness="0,0,0,0" Background="{x:Null}" HorizontalAlignment="Left" Margin="42,260,0,0" Width="559" VerticalAlignment="Top" HorizontalContentAlignment="Left">
             <Border Background="#223244"
         CornerRadius="8"
@@ -104,7 +104,7 @@ BorderThickness="2" HorizontalAlignment="Left">
                     </Border>
 
                     <!-- Texto principal -->
-                    <TextBlock Text="text"
+                    <TextBlock x:Name="alternativa_A" Text="text"
    VerticalAlignment="Center"
    Foreground="White"
    FontSize="16"
