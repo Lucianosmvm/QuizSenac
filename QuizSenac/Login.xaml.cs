@@ -26,27 +26,27 @@ namespace QuizSenac
             InitializeComponent();
         }
 
+        private void txb_nome_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string nome = txb_nome.Text.Trim();
+            btn_login.IsEnabled = !string.IsNullOrEmpty(nome);
+        }
+
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
-//<<<<<<< HEAD
+            string nome = txb_nome.Text.Trim();
+            RegistrarJogador(nome);  // Agora sim, registra ao clicar
             NavigationService.Navigate(new Pergunta1());
         }
 
-        private void txb_nome_TextChanged(object sender, TextChangedEventArgs e)
+        private void RegistrarJogador(string nome)
         {
-            
-//=======
-
-            //string sql = "select * from perguntas";
-
-            //MySqlCommand cmd = new MySqlCommand(sql, ConexaoDB.Conexao);
-            //MySqlDataReader reader = cmd.ExecuteReader();
-            //while (reader.Read())
-            //    MessageBox.Show("Pergunta: " + reader["Pergunta"]);
-
-
-            
-
+            string sql = "INSERT INTO jogador (Nome) VALUES (@nome)";
+            using (MySqlCommand cmd = new MySqlCommand(sql, ConexaoDB.Conexao))
+            {
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.ExecuteNonQuery();
+            }
         }
-    }
+    }       
 }

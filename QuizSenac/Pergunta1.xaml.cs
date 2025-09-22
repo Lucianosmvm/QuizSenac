@@ -24,6 +24,8 @@ namespace QuizSenac
         public Pergunta1()
         {
             InitializeComponent();
+            var num = 1;
+            lab_per1.Content += $" {num++}"; 
 
             // Consulta para obter a pergunta
             string sql = $"select Pergunta from perguntas where PerguntasID = {1}";
@@ -78,7 +80,7 @@ namespace QuizSenac
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
