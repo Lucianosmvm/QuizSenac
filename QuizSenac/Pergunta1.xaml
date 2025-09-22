@@ -29,7 +29,7 @@
                     </Border>
 
                     <!-- Texto principal -->
-                    <TextBlock Text="text"
+                    <TextBlock x:Name="alternativa_C" Text="text"
            VerticalAlignment="Center"
            Foreground="White"
            FontSize="16"
@@ -37,7 +37,7 @@
                 </StackPanel>
             </Border>
         </Button>
-        <Button  Height="40"  BorderThickness="0,0,0,0" Background="{x:Null}" HorizontalAlignment="Left" Margin="42,216,0,0" Width="559" VerticalAlignment="Top" HorizontalContentAlignment="Left">
+        <Button  Height="40"  BorderThickness="0,0,0,0" Background="{x:Null}" HorizontalAlignment="Left" Margin="42,216,0,0" Width="559" VerticalAlignment="Top" HorizontalContentAlignment="Left" Click="Button_Click_1">
             <Border Background="#223244"
 CornerRadius="8"
 BorderBrush="White"
@@ -54,7 +54,7 @@ BorderThickness="2">
                     </Border>
 
                     <!-- Texto principal -->
-                    <TextBlock Text="text"
+                    <TextBlock x:Name="alternativa_B" Text="text"
    VerticalAlignment="Center"
    Foreground="White"
    FontSize="16"
@@ -79,7 +79,7 @@ BorderThickness="2">
                     </Border>
 
                     <!-- Texto principal -->
-                    <TextBlock Text="text"
+                    <TextBlock x:Name="alternativa_D" Text="text"
    VerticalAlignment="Center"
    Foreground="White"
    FontSize="16"
@@ -93,7 +93,7 @@ CornerRadius="8"
 BorderBrush="White"
 BorderThickness="2" HorizontalAlignment="Left">
 
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <StackPanel x:Name="bt_A" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <!-- Bloco da letra A -->
                     <Border Width="25" Height="20" Background="White" CornerRadius="4" Margin="5">
                         <TextBlock Text="A"

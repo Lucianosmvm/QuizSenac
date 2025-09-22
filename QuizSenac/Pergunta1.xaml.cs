@@ -44,11 +44,46 @@ namespace QuizSenac
                 alternativa_A.Text = readerA["opA"].ToString();
             }
             readerA.Close();
+
+            // Consulta para obter a alternativa B
+            string sqlB = $"select opB from perguntas where PerguntasID = {1}";
+            MySqlCommand cmdB = new MySqlCommand(sqlB, ConexaoDB.Conexao);
+            MySqlDataReader readerB = cmdB.ExecuteReader();
+            if (readerB.Read())
+            {
+                alternativa_B.Text = readerB["opB"].ToString();
+            }
+            readerB.Close();
+
+            // Consulta para obter a alternativa C
+            string sqlC = $"select opC from perguntas where PerguntasID = {1}";
+            MySqlCommand cmdC = new MySqlCommand(sqlC, ConexaoDB.Conexao);
+            MySqlDataReader readerC = cmdC.ExecuteReader();
+            if (readerC.Read())
+            {
+                alternativa_C.Text = readerC["opC"].ToString();
+            }
+            readerC.Close();
+
+            // Consulta para obter a alternativa D
+            string sqlD = $"select opD from perguntas where PerguntasID = {1}";
+            MySqlCommand cmdD = new MySqlCommand(sqlD, ConexaoDB.Conexao);
+            MySqlDataReader readerD = cmdD.ExecuteReader();
+            if (readerD.Read())
+            {
+                alternativa_D.Text = readerD["opD"].ToString();
+            }
+            readerD.Close();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
