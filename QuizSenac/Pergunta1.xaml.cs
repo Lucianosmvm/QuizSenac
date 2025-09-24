@@ -67,12 +67,16 @@ namespace QuizSenac
                 }
             }
 
+
             reader.Close();
+            updateTime();
 
-
-            int tempoRestante = 30; // Tempo inicial em segundos 
+        }
+        private void updateTime()
+        {
+            int tempoRestante = 5; // Tempo inicial em segundos 
             DispatcherTimer cronometro = new DispatcherTimer();
-
+            
             cronometro.Start();
             cronometro.Interval = TimeSpan.FromSeconds(1); // Atualiza a cada segundo
             EventHandler value = (sender, e) =>
@@ -82,12 +86,12 @@ namespace QuizSenac
                 if (tempoRestante <= 0)
                 {
                     cronometro.Stop();
+                    
                 }
             };
 
             cronometro.Tick += value;
         }
-
 
         private void btn_A_Click(object sender, RoutedEventArgs e)
         {
