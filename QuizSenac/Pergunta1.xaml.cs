@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MySql.Data.MySqlClient;
+using System.Windows.Threading;
+
 
 namespace QuizSenac
 {
@@ -23,9 +26,11 @@ namespace QuizSenac
     {
         public Pergunta1()
         {
+
+
             InitializeComponent();
             var num = 1;
-            lab_per1.Content += $" {num++}"; 
+            lab_per1.Content += $" {num++}";
 
             // Consulta para obter a pergunta
             string sql = $"select Pergunta from perguntas where PerguntasID = {1}";
@@ -76,8 +81,23 @@ namespace QuizSenac
                 alternativa_D.Text = readerD["opD"].ToString();
             }
             readerD.Close();
-        }
 
+            int tempoRestante = 30; // Tempo inicial em segundos 
+            DispatcherTimer cronometro = new DispatcherTimer();
+            cronometro.Interval = TimeSpan.FromSeconds(1); // Atualiza a cada segundo
+            EventHandler value = (sender, e) =>
+            {
+                tempoRestante--;
+                lb_Tempo.Content = $"{tempoRestante}s"; // Atualiza o label 
+                if (tempoRestante <= 0)
+                {
+                    cronometro.Stop();
+                }
+            };
+
+            cronometro.Tick += value;
+            cronometro.Start();
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 

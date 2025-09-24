@@ -112,5 +112,7 @@ BorderThickness="2" HorizontalAlignment="Left">
                 </StackPanel>
             </Border>
         </Button>
+        <Label x:Name="lb_Tempo" Content="" HorizontalAlignment="Left" Margin="273,17,0,0" VerticalAlignment="Top" Width="66" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Sans Serif Collection"/>
+        <Label Content="Tempo" HorizontalAlignment="Left" Margin="282,-6,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Sans Serif Collection" FontWeight="Bold"/>
     </Grid>
 </Page>
