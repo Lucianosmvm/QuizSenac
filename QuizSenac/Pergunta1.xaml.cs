@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MySql.Data.MySqlClient;
+using System.Windows.Threading;
 
 namespace QuizSenac
 {
@@ -21,71 +22,124 @@ namespace QuizSenac
     /// </summary>
     public partial class Pergunta1 : Page
     {
+        private string respostaCorreta;
         public Pergunta1()
         {
             InitializeComponent();
             var num = 1;
-            lab_per1.Content += $" {num++}"; 
+            lab_per1.Content += $" {num++}";
+            update_pergunta();
 
+
+        }
+
+
+        private void update_pergunta()
+        {
             // Consulta para obter a pergunta
-            string sql = $"select Pergunta from perguntas where PerguntasID = {1}";
+            Random rand = new Random();
+            var idx = rand.Next(1, 20);
+            string sql = $"select * from perguntas where PerguntasID = {idx}";
             MySqlCommand cmd = new MySqlCommand(sql, ConexaoDB.Conexao);
             MySqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
+                respostaCorreta = reader["respostaCorreta"].ToString();
                 txt_pergunta.Text = reader["Pergunta"].ToString();
+                for (int i = 0; i < 4; i++)
+                {
+                    if (i == 0)
+                    {
+                        alternativa_A.Text = reader["opA"].ToString();
+                    }
+                    else if (i == 1)
+                    {
+                        alternativa_B.Text = reader["opB"].ToString();
+                    }
+                    else if (i == 2)
+                    {
+                        alternativa_C.Text = reader["opC"].ToString();
+                    }
+                    else if (i == 3)
+                    {
+                        alternativa_D.Text = reader["opD"].ToString();
+                    }
+                }
             }
+
             reader.Close();
 
-            // Consulta para obter a alternativa A
-            string sqlA = $"select opA from perguntas where PerguntasID = {1}";
-            MySqlCommand cmdA = new MySqlCommand(sqlA, ConexaoDB.Conexao);
-            MySqlDataReader readerA = cmdA.ExecuteReader();
-            if (readerA.Read())
-            {
-                alternativa_A.Text = readerA["opA"].ToString();
-            }
-            readerA.Close();
 
-            // Consulta para obter a alternativa B
-            string sqlB = $"select opB from perguntas where PerguntasID = {1}";
-            MySqlCommand cmdB = new MySqlCommand(sqlB, ConexaoDB.Conexao);
-            MySqlDataReader readerB = cmdB.ExecuteReader();
-            if (readerB.Read())
-            {
-                alternativa_B.Text = readerB["opB"].ToString();
-            }
-            readerB.Close();
+            int tempoRestante = 30; // Tempo inicial em segundos 
+            DispatcherTimer cronometro = new DispatcherTimer();
 
-            // Consulta para obter a alternativa C
-            string sqlC = $"select opC from perguntas where PerguntasID = {1}";
-            MySqlCommand cmdC = new MySqlCommand(sqlC, ConexaoDB.Conexao);
-            MySqlDataReader readerC = cmdC.ExecuteReader();
-            if (readerC.Read())
+            cronometro.Start();
+            cronometro.Interval = TimeSpan.FromSeconds(1); // Atualiza a cada segundo
+            EventHandler value = (sender, e) =>
             {
-                alternativa_C.Text = readerC["opC"].ToString();
-            }
-            readerC.Close();
+                tempoRestante--;
+                lb_Tempo.Content = $"{tempoRestante}s"; // Atualiza o label 
+                if (tempoRestante <= 0)
+                {
+                    cronometro.Stop();
+                }
+            };
 
-            // Consulta para obter a alternativa D
-            string sqlD = $"select opD from perguntas where PerguntasID = {1}";
-            MySqlCommand cmdD = new MySqlCommand(sqlD, ConexaoDB.Conexao);
-            MySqlDataReader readerD = cmdD.ExecuteReader();
-            if (readerD.Read())
-            {
-                alternativa_D.Text = readerD["opD"].ToString();
-            }
-            readerD.Close();
+            cronometro.Tick += value;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void btn_A_Click(object sender, RoutedEventArgs e)
         {
-
+            update_pergunta();
+            if (alternativa_A.Text == respostaCorreta)
+            {
+                MessageBox.Show(" Resposta correta!");
+            }
+            else
+            {
+                MessageBox.Show($" Resposta errada! A correta era: {respostaCorreta}");
+            }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void btn_B_Click(object sender, RoutedEventArgs e)
         {
-
+            update_pergunta();
+            if (alternativa_B.Text == respostaCorreta)
+            {
+                MessageBox.Show(" Resposta correta!");
+            }
+            else
+            {
+                MessageBox.Show($" Resposta errada! A correta era: {respostaCorreta}");
+            }
         }
+
+        private void btn_C_Click(object sender, RoutedEventArgs e)
+        {
+            update_pergunta();
+            if (alternativa_C.Text == respostaCorreta)
+            {
+                MessageBox.Show(" Resposta correta!");
+            }
+            else
+            {
+                MessageBox.Show($" Resposta errada! A correta era: {respostaCorreta}");
+            }
+        }
+
+        private void btn_D_Click(object sender, RoutedEventArgs e)
+        {
+            update_pergunta();
+            if (alternativa_D.Text == respostaCorreta)
+            {
+                MessageBox.Show(" Resposta correta!");
+            }
+            else
+            {
+                MessageBox.Show($" Resposta errada! A correta era: {respostaCorreta}");
+            }
+        }
+
     }
 }
