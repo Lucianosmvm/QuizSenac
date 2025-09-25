@@ -12,7 +12,7 @@
         <Image x:Name="img_per1" HorizontalAlignment="Left" Height="443" Margin="1,2,0,0" VerticalAlignment="Top" Width="794" Source="/Quiz Senac 2025 (6).png"/>
         <Label x:Name="lab_per1" Content="Pergunta" HorizontalAlignment="Left" Margin="35,41,0,0" VerticalAlignment="Top" Height="56" Width="243" Foreground="#FF103F6B" FontSize="24" FontFamily="Sans Serif Collection" FontWeight="Bold"/>
         <TextBlock x:Name="txt_pergunta" HorizontalAlignment="Left" Margin="44,111,0,0" TextWrapping="Wrap" Text="pergunta" VerticalAlignment="Top" Height="48" Width="361" FontSize="20" FontFamily="Sans Serif Collection"/>
-        <Button  Height="40"  BorderThickness="0,0,0,0" Background="{x:Null}" HorizontalAlignment="Left" Margin="42,260,0,0" Width="559" VerticalAlignment="Top" HorizontalContentAlignment="Left">
+        <Button x:Name="btn_C"  Height="40"  BorderThickness="0,0,0,0" Background="{x:Null}" HorizontalAlignment="Left" Margin="42,260,0,0" Width="559" VerticalAlignment="Top" HorizontalContentAlignment="Left" Click="btn_C_Click">
             <Border Background="#223244"
         CornerRadius="8"
         BorderBrush="White"
@@ -37,7 +37,7 @@
                 </StackPanel>
             </Border>
         </Button>
-        <Button  Height="40"  BorderThickness="0,0,0,0" Background="{x:Null}" HorizontalAlignment="Left" Margin="42,216,0,0" Width="559" VerticalAlignment="Top" HorizontalContentAlignment="Left" Click="Button_Click_1">
+        <Button x:Name="btn_B"  Height="40"  BorderThickness="0,0,0,0" Background="{x:Null}" HorizontalAlignment="Left" Margin="42,216,0,0" Width="559" VerticalAlignment="Top" HorizontalContentAlignment="Left" Click="btn_B_Click">
             <Border Background="#223244"
 CornerRadius="8"
 BorderBrush="White"
@@ -62,7 +62,7 @@ BorderThickness="2">
                 </StackPanel>
             </Border>
         </Button>
-        <Button  Height="40"  BorderThickness="0,0,0,0" Background="{x:Null}" HorizontalAlignment="Left" Margin="42,304,0,0" Width="559" VerticalAlignment="Top" HorizontalContentAlignment="Left">
+        <Button x:Name="btn_D"  Height="40"  BorderThickness="0,0,0,0" Background="{x:Null}" HorizontalAlignment="Left" Margin="42,304,0,0" Width="559" VerticalAlignment="Top" HorizontalContentAlignment="Left" Click="btn_D_Click">
             <Border Background="#223244"
 CornerRadius="8"
 BorderBrush="White"
@@ -87,7 +87,7 @@ BorderThickness="2">
                 </StackPanel>
             </Border>
         </Button>
-        <Button  Height="40"  BorderThickness="0,0,0,0" Background="{x:Null}" HorizontalAlignment="Left" Margin="41,175,0,0" Width="561" VerticalAlignment="Top" HorizontalContentAlignment="Left" Click="Button_Click">
+        <Button x:Name="btn_A"  Height="40"  BorderThickness="0,0,0,0" Background="{x:Null}" HorizontalAlignment="Left" Margin="41,175,0,0" Width="561" VerticalAlignment="Top" HorizontalContentAlignment="Left" Click="btn_A_Click">
             <Border Background="#223244"
 CornerRadius="8"
 BorderBrush="White"
