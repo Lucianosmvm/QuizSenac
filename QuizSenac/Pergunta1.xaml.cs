@@ -24,6 +24,7 @@ namespace QuizSenac
     public partial class Pergunta1 : Page
     {
         private string respostaCorreta;
+        DispatcherTimer cronometro = new DispatcherTimer();
         public Pergunta1()
         {
 
@@ -72,6 +73,7 @@ namespace QuizSenac
 
 
             reader.Close();
+            cronometro.Stop();
             updateTime();
 
         }
@@ -79,19 +81,17 @@ namespace QuizSenac
         private void updateTime()
         {
             int tempoRestante = 5; // Tempo inicial em segundos 
-            DispatcherTimer cronometro = new DispatcherTimer();
 
             cronometro.Start();
             cronometro.Interval = TimeSpan.FromSeconds(1); // Atualiza a cada segundo
             EventHandler value = (sender, e) =>
             {
-                tempoRestante--;
                 lb_Tempo.Content = $"{tempoRestante}s"; // Atualiza o label 
-                if (tempoRestante <= 0)
+                if (tempoRestante == 0)
                 {
-                    cronometro.Stop();
-
+                    update_pergunta();
                 }
+                tempoRestante--;
             };
 
             cronometro.Tick += value;
