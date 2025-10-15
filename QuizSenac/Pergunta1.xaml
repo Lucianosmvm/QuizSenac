@@ -5,113 +5,66 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:QuizSenac"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Pergunta1">
+      Title="Pergunta1"
+      WindowHeight="Auto" WindowWidth="Auto">
 
-    <Grid>
-        <Image x:Name="img_per1" HorizontalAlignment="Left" Height="443" Margin="1,2,0,0" VerticalAlignment="Top" Width="794" Source="/Quiz Senac 2025 (6).png"/>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <!-- Fundo ocupa toda a tela -->
+        <Image x:Name="img_per1" Source="/Quiz Senac 2025 (6).png"
+               Stretch="Fill"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Stretch"/>
+
+        <!-- Seus elementos continuam aqui -->
         <Label x:Name="lab_per1" Content="Pergunta" HorizontalAlignment="Left" Margin="35,41,0,0" VerticalAlignment="Top" Height="56" Width="243" Foreground="#FF103F6B" FontSize="24" FontFamily="Sans Serif Collection" FontWeight="Bold"/>
         <TextBlock x:Name="txt_pergunta" HorizontalAlignment="Left" Margin="44,111,0,0" TextWrapping="Wrap" Text="pergunta" VerticalAlignment="Top" Height="48" Width="361" FontSize="20" FontFamily="Sans Serif Collection"/>
-        <Button x:Name="btn_C"  Height="40"  BorderThickness="0,0,0,0" Background="{x:Null}" HorizontalAlignment="Left" Margin="42,260,0,0" Width="559" VerticalAlignment="Top" HorizontalContentAlignment="Left" Click="btn_C_Click">
-            <Border Background="#223244"
-        CornerRadius="8"
-        BorderBrush="White"
-        BorderThickness="2">
 
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                    <!-- Bloco da letra A -->
+        <!-- Botões A, B, C, D -->
+        <Button x:Name="btn_A" Height="40" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Margin="41,175,0,0" Width="561" VerticalAlignment="Top" HorizontalContentAlignment="Left" Click="btn_A_Click">
+            <Border Background="#223244" CornerRadius="8" BorderBrush="White" BorderThickness="2">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <Border Width="25" Height="20" Background="White" CornerRadius="4" Margin="5">
-                        <TextBlock
-               VerticalAlignment="Center"
-               HorizontalAlignment="Center"
-               Foreground="Black"
-               FontWeight="Bold"><Run Language="pt-br" Text="C"/></TextBlock>
+                        <TextBlock Text="A" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" Margin="0,0,0,2"/>
                     </Border>
-
-                    <!-- Texto principal -->
-                    <TextBlock x:Name="alternativa_C" Text="text"
-           VerticalAlignment="Center"
-           Foreground="White"
-           FontSize="16"
-           Margin="5,0,10,0"/>
+                    <TextBlock x:Name="alternativa_A" Text="text" VerticalAlignment="Center" Foreground="White" FontSize="16" Margin="5,0,10,0"/>
                 </StackPanel>
             </Border>
         </Button>
-        <Button x:Name="btn_B"  Height="40"  BorderThickness="0,0,0,0" Background="{x:Null}" HorizontalAlignment="Left" Margin="42,216,0,0" Width="559" VerticalAlignment="Top" HorizontalContentAlignment="Left" Click="btn_B_Click">
-            <Border Background="#223244"
-CornerRadius="8"
-BorderBrush="White"
-BorderThickness="2">
 
+        <Button x:Name="btn_B" Height="40" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Margin="42,216,0,0" Width="559" VerticalAlignment="Top" HorizontalContentAlignment="Left" Click="btn_B_Click">
+            <Border Background="#223244" CornerRadius="8" BorderBrush="White" BorderThickness="2">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                    <!-- Bloco da letra A -->
                     <Border Width="25" Height="20" Background="White" CornerRadius="4" Margin="5">
-                        <TextBlock
-       VerticalAlignment="Center"
-       HorizontalAlignment="Center"
-       Foreground="Black"
-       FontWeight="Bold"><Run Language="pt-br" Text="B"/></TextBlock>
+                        <TextBlock Text="B" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold"/>
                     </Border>
-
-                    <!-- Texto principal -->
-                    <TextBlock x:Name="alternativa_B" Text="text"
-   VerticalAlignment="Center"
-   Foreground="White"
-   FontSize="16"
-   Margin="5,0,10,0"/>
+                    <TextBlock x:Name="alternativa_B" Text="text" VerticalAlignment="Center" Foreground="White" FontSize="16" Margin="5,0,10,0"/>
                 </StackPanel>
             </Border>
         </Button>
-        <Button x:Name="btn_D"  Height="40"  BorderThickness="0,0,0,0" Background="{x:Null}" HorizontalAlignment="Left" Margin="42,304,0,0" Width="559" VerticalAlignment="Top" HorizontalContentAlignment="Left" Click="btn_D_Click">
-            <Border Background="#223244"
-CornerRadius="8"
-BorderBrush="White"
-BorderThickness="2">
 
+        <Button x:Name="btn_C" Height="40" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Margin="42,260,0,0" Width="559" VerticalAlignment="Top" HorizontalContentAlignment="Left" Click="btn_C_Click">
+            <Border Background="#223244" CornerRadius="8" BorderBrush="White" BorderThickness="2">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                    <!-- Bloco da letra A -->
                     <Border Width="25" Height="20" Background="White" CornerRadius="4" Margin="5">
-                        <TextBlock
-       VerticalAlignment="Center"
-       HorizontalAlignment="Center"
-       Foreground="Black"
-       FontWeight="Bold"><Run Language="pt-br" Text="D"/></TextBlock>
+                        <TextBlock Text="C" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold"/>
                     </Border>
-
-                    <!-- Texto principal -->
-                    <TextBlock x:Name="alternativa_D" Text="text"
-   VerticalAlignment="Center"
-   Foreground="White"
-   FontSize="16"
-   Margin="5,0,10,0"/>
+                    <TextBlock x:Name="alternativa_C" Text="text" VerticalAlignment="Center" Foreground="White" FontSize="16" Margin="5,0,10,0"/>
                 </StackPanel>
             </Border>
         </Button>
-        <Button x:Name="btn_A"  Height="40"  BorderThickness="0,0,0,0" Background="{x:Null}" HorizontalAlignment="Left" Margin="41,175,0,0" Width="561" VerticalAlignment="Top" HorizontalContentAlignment="Left" Click="btn_A_Click">
-            <Border Background="#223244"
-CornerRadius="8"
-BorderBrush="White"
-BorderThickness="2" HorizontalAlignment="Left">
 
-                <StackPanel x:Name="bt_A" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <!-- Bloco da letra A -->
-                    <Border x:Name="op_B" Width="25" Height="20" Background="White" CornerRadius="4" Margin="5">
-                        <TextBlock Text="A"
-       VerticalAlignment="Bottom"
-       HorizontalAlignment="Center"
-       Foreground="Black"
-       FontWeight="Bold" Margin="0,0,0,2"/>
+        <Button x:Name="btn_D" Height="40" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Margin="42,304,0,0" Width="559" VerticalAlignment="Top" HorizontalContentAlignment="Left" Click="btn_D_Click">
+            <Border Background="#223244" CornerRadius="8" BorderBrush="White" BorderThickness="2">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                    <Border Width="25" Height="20" Background="White" CornerRadius="4" Margin="5">
+                        <TextBlock Text="D" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold"/>
                     </Border>
-
-                    <!-- Texto principal -->
-                    <TextBlock x:Name="alternativa_A" Text="text"
-   VerticalAlignment="Center"
-   Foreground="White"
-   FontSize="16"
-   Margin="5,0,10,0"/>
+                    <TextBlock x:Name="alternativa_D" Text="text" VerticalAlignment="Center" Foreground="White" FontSize="16" Margin="5,0,10,0"/>
                 </StackPanel>
             </Border>
         </Button>
+
+        <!-- Tempo -->
         <Label x:Name="lb_Tempo" Content="" HorizontalAlignment="Left" Margin="273,17,0,0" VerticalAlignment="Top" Width="66" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Sans Serif Collection"/>
         <Label Content="Tempo" HorizontalAlignment="Left" Margin="282,-6,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Sans Serif Collection" FontWeight="Bold"/>
     </Grid>

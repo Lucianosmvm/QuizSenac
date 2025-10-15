@@ -32,7 +32,7 @@ namespace QuizSenac
             btn_login.IsEnabled = !string.IsNullOrEmpty(nome);
         }
 
-        private void btn_login_Click(object sender, RoutedEventArgs e)
+        private void btn_login_Click_1(object sender, RoutedEventArgs e)
         {
             string nome = txb_nome.Text.Trim();
             RegistrarJogador(nome);  // Agora sim, registra ao clicar
@@ -48,5 +48,7 @@ namespace QuizSenac
                 cmd.ExecuteNonQuery();
             }
         }
+
+      
     }       
 }

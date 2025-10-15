@@ -13,6 +13,7 @@
     <None Remove="Quiz Senac 2025 %285%29.png" />
     <None Remove="Quiz Senac 2025 %286%29.png" />
     <None Remove="Quiz Senac 2025 %287%29.png" />
+    <None Remove="Quiz Senac 2025 %288%29.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +29,7 @@
     <Resource Include="Quiz Senac 2025 (5).png" />
     <Resource Include="Quiz Senac 2025 (6).png" />
     <Resource Include="Quiz Senac 2025 (7).png" />
+    <Resource Include="Quiz Senac 2025 (8).png" />
   </ItemGroup>
 
 </Project>
