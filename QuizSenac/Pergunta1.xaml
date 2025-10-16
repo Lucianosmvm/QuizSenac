@@ -36,7 +36,7 @@
                 <Border Background="#223244" CornerRadius="10" BorderBrush="White" BorderThickness="3" Width="402">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Border Width="40" Height="35" Background="White" CornerRadius="6" Margin="15,0,15,0" VerticalAlignment="Center">
-                            <TextBlock Text="A" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22"/>
+                            <TextBlock x:Name="t1" Text="A" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22"/>
                         </Border>
                         <TextBlock x:Name="alternativa_A" VerticalAlignment="Center" Foreground="White" FontSize="22" TextAlignment="Left"><Run Language="pt-br" Text="tt"/></TextBlock>
                     </StackPanel>
@@ -48,7 +48,7 @@
                 <Border Background="#223244" CornerRadius="10" BorderBrush="White" BorderThickness="3" Width="402">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Border Width="40" Height="35" Background="White" CornerRadius="6" Margin="15,0,15,0" VerticalAlignment="Center">
-                            <TextBlock Text="B" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22"/>
+                            <TextBlock x:Name="t2" Text="B" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22"/>
                         </Border>
                         <TextBlock x:Name="alternativa_B" VerticalAlignment="Center" Foreground="White" FontSize="22" TextAlignment="Left"><Run Language="pt-br" Text="tt"/></TextBlock>
                     </StackPanel>
@@ -60,7 +60,7 @@
                 <Border Background="#223244" CornerRadius="10" BorderBrush="White" BorderThickness="3" Width="402">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Border Width="40" Height="35" Background="White" CornerRadius="6" Margin="15,0,15,0" VerticalAlignment="Center">
-                            <TextBlock Text="C" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22"/>
+                            <TextBlock x:Name="t3" Text="C" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22"/>
                         </Border>
                         <TextBlock x:Name="alternativa_C" VerticalAlignment="Center" Foreground="White" FontSize="22" TextAlignment="Left"><Run Language="pt-br" Text="tt"/></TextBlock>
                     </StackPanel>
@@ -72,7 +72,7 @@
                 <Border Background="#223244" CornerRadius="10" BorderBrush="White" BorderThickness="3" Width="402">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Border Width="40" Height="35" Background="White" CornerRadius="6" Margin="15,0,15,0" VerticalAlignment="Center">
-                            <TextBlock Text="D" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22"/>
+                            <TextBlock x:Name="t4" Text="D" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22"/>
                         </Border>
                         <TextBlock x:Name="alternativa_D" VerticalAlignment="Center" Foreground="White" FontSize="22" TextAlignment="Left" Text="textexto"/>
                     </StackPanel>

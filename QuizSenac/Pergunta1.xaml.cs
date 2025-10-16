@@ -64,7 +64,7 @@ namespace QuizSenac
         private void updateTime()
         {
             cronometro.Stop();  // Para o cronômetro
-            tempoRestante = 5;  // Reseta o tempo para 5 segundos
+            tempoRestante = 30;  // Reseta o tempo para 5 segundos
             lb_Tempo.Content = $"{tempoRestante}s";  // Atualiza o label imediatamente
             cronometro.Start();  // Inicia o cronômetro
         }
@@ -83,22 +83,22 @@ namespace QuizSenac
 
         private void btn_A_Click(object sender, RoutedEventArgs e)
         {
-            VerificarResultado(alternativa_A.Text);
+            VerificarResultado(t1.Text);
         }
 
         private void btn_B_Click(object sender, RoutedEventArgs e)
         {
-            VerificarResultado(alternativa_B.Text);
+            VerificarResultado(t2.Text);
         }
 
         private void btn_C_Click(object sender, RoutedEventArgs e)
         {
-            VerificarResultado(alternativa_C.Text);
+            VerificarResultado(t3.Text);
         }
 
         private void btn_D_Click(object sender, RoutedEventArgs e)
         {
-            VerificarResultado(alternativa_D.Text);
+            VerificarResultado(t4.Text);
         }
 
         private void VerificarResultado(string escolha)
