@@ -30,6 +30,7 @@ namespace QuizSenac
         public Pergunta1()
         {
             InitializeComponent();
+            gr_resultado.Visibility = Visibility.Hidden; // Esconde o grid de resultado inicialmente
             var num = 1;
             lab_per1.Content += $" {num++}";
 
@@ -84,33 +85,61 @@ namespace QuizSenac
         private void btn_A_Click(object sender, RoutedEventArgs e)
         {
             VerificarResultado(t1.Text);
+
+            
+
+
         }
 
         private void btn_B_Click(object sender, RoutedEventArgs e)
         {
             VerificarResultado(t2.Text);
+
+            
         }
 
         private void btn_C_Click(object sender, RoutedEventArgs e)
         {
             VerificarResultado(t3.Text);
+
+           
         }
 
         private void btn_D_Click(object sender, RoutedEventArgs e)
         {
             VerificarResultado(t4.Text);
+
+         
         }
 
-        private void VerificarResultado(string escolha)
+        private async Task VerificarResultado(string escolha)
         {
+            gr_resultado.Visibility = Visibility.Visible;
+
             if (escolha == respostaCorreta)
             {
-                MessageBox.Show("Resposta correta!");
+                //MessageBox.Show("Resposta correta!");
+                if (tempoRestante >= 15 )
+                {
+                    lb_resultado.Content = ("+10");
+                }
+                else if (tempoRestante >= 1)
+                {
+                    lb_resultado.Content = ("+5");
+                }
+                else
+                {
+                    lb_resultado.Content = ("0");
+                }
             }
             else
             {
-                MessageBox.Show($"Resposta errada! A correta era: {respostaCorreta}");
+                //MessageBox.Show($"Resposta errada! A correta era: {respostaCorreta}");
+                lb_resultado.Content = ("0");
             }
+
+            await Task.Delay(2000);  // Espera 2 segundos para mostrar o resultado
+            gr_resultado.Visibility = Visibility.Hidden;  // Esconde o grid de resultado
             update_pergunta();  // Atualiza para a próxima pergunta
 
         }

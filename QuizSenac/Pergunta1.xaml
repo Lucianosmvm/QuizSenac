@@ -79,5 +79,11 @@
                 </Border>
             </Button>
         </StackPanel>
+        <Grid Grid.Row="3"/>
+
+        <Grid x:Name="gr_resultado" Background="#FFE8E8E8" Grid.RowSpan="4" HorizontalAlignment="Center" Width="1920" Height="1080" VerticalAlignment="Top" Visibility="Visible">
+            <Label x:Name="lb_resultado" Content="Label" Height="128" Width="232" RenderTransformOrigin="0.486,1.15" FontSize="90" VerticalContentAlignment="Stretch" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
+        </Grid>
+
     </Grid>
 </Page>
