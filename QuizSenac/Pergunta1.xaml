@@ -76,13 +76,9 @@
         </StackPanel>
         <Grid Grid.Row="3"/>
 
-<<<<<<< HEAD
-        <Grid x:Name="gr_resultado" Background="White" Grid.RowSpan="4" HorizontalAlignment="Center" Width="1920" Height="1080" VerticalAlignment="Top" Visibility="Visible">
+        <Grid x:Name="gr_resultado" Background="White" Grid.RowSpan="4" HorizontalAlignment="Center" Width="1920" Height="1080" VerticalAlignment="Top" Visibility="Hidden">
             <Label x:Name="lb_resultado" Content="Label" Height="128" Width="232" RenderTransformOrigin="0.486,1.15" FontSize="90" VerticalContentAlignment="Stretch" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="Black"/>
-=======
-        <Grid x:Name="gr_resultado" Background="#FFE8E8E8" Grid.RowSpan="4" HorizontalAlignment="Center" Width="1920" Height="1080" VerticalAlignment="Top" Visibility="Hidden">
-            <Label x:Name="lb_resultado" Content="Label" Height="128" Width="232" RenderTransformOrigin="0.486,1.15" FontSize="90" VerticalContentAlignment="Stretch" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
->>>>>>> 68737847ced9b05c7b207c1ba60cb134a04270f8
+
         </Grid>
         <Label Content="" Foreground="White" FontFamily="Sans Serif Collection" FontWeight="Bold" FontSize="34" Margin="586,17,1208,137" Grid.RowSpan="2"/>
         <Label x:Name="lb_Tempo" Foreground="White" FontFamily="Sans Serif Collection" FontWeight="Bold" 
