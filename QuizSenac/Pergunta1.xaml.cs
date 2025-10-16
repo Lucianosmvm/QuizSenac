@@ -138,7 +138,7 @@ namespace QuizSenac
                 lb_resultado.Content = ("0");
             }
 
-            await Task.Delay(2000);  // Espera 2 segundos para mostrar o resultado
+            await Task.Delay(1500);  // Espera 2 segundos para mostrar o resultado
             gr_resultado.Visibility = Visibility.Hidden;  // Esconde o grid de resultado
             update_pergunta();  // Atualiza para a próxima pergunta
 
