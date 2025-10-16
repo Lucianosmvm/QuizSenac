@@ -24,19 +24,21 @@ namespace QuizSenac
     public partial class Pergunta1 : Page
     {
         private string respostaCorreta;
-        DispatcherTimer cronometro = new DispatcherTimer();
+        private DispatcherTimer cronometro = new DispatcherTimer();
+        private int tempoRestante;  // Variável de instância para o tempo restante
+
         public Pergunta1()
         {
-
-
             InitializeComponent();
             var num = 1;
             lab_per1.Content += $" {num++}";
-            update_pergunta();
 
+            // Adicionar o manipulador de evento Tick apenas uma vez
+            cronometro.Tick += Cronometro_Tick;
+            cronometro.Interval = TimeSpan.FromSeconds(1);  // Intervalo de 1 segundo
 
+            update_pergunta();  // Inicia a primeira pergunta
         }
-
 
         private void update_pergunta()
         {
@@ -50,104 +52,67 @@ namespace QuizSenac
             {
                 respostaCorreta = reader["respostaCorreta"].ToString();
                 txt_pergunta.Text = reader["Pergunta"].ToString();
-                for (int i = 0; i < 4; i++)
-                {
-                    if (i == 0)
-                    {
-                        alternativa_A.Text = reader["opA"].ToString();
-                    }
-                    else if (i == 1)
-                    {
-                        alternativa_B.Text = reader["opB"].ToString();
-                    }
-                    else if (i == 2)
-                    {
-                        alternativa_C.Text = reader["opC"].ToString();
-                    }
-                    else if (i == 3)
-                    {
-                        alternativa_D.Text = reader["opD"].ToString();
-                    }
-                }
+                alternativa_A.Text = reader["opA"].ToString();
+                alternativa_B.Text = reader["opB"].ToString();
+                alternativa_C.Text = reader["opC"].ToString();
+                alternativa_D.Text = reader["opD"].ToString();
             }
-
-
             reader.Close();
-            cronometro.Stop();
-            updateTime();
 
+            updateTime();  // Atualiza o tempo para a nova pergunta
         }
-
         private void updateTime()
         {
-            int tempoRestante = 5; // Tempo inicial em segundos 
-
-            cronometro.Start();
-            cronometro.Interval = TimeSpan.FromSeconds(1); // Atualiza a cada segundo
-            EventHandler value = (sender, e) =>
-            {
-                lb_Tempo.Content = $"{tempoRestante}s"; // Atualiza o label 
-                if (tempoRestante == 0)
-                {
-                    update_pergunta();
-                }
-                tempoRestante--;
-            };
-
-            cronometro.Tick += value;
+            cronometro.Stop();  // Para o cronômetro
+            tempoRestante = 5;  // Reseta o tempo para 5 segundos
+            lb_Tempo.Content = $"{tempoRestante}s";  // Atualiza o label imediatamente
+            cronometro.Start();  // Inicia o cronômetro
         }
 
+        private void Cronometro_Tick(object sender, EventArgs e)
+        {
+            tempoRestante--;  // Decrementa o tempo
+            lb_Tempo.Content = $"{tempoRestante}s";  // Atualiza o label
+
+            if (tempoRestante <= 0)
+            {
+                cronometro.Stop();  // Para o cronômetro quando o tempo acaba
+                update_pergunta();  // Vai para a próxima pergunta
+            }
+        }
 
         private void btn_A_Click(object sender, RoutedEventArgs e)
         {
-            update_pergunta();
-            if (alternativa_A.Text == respostaCorreta)
-            {
-                MessageBox.Show(" Resposta correta!");
-            }
-            else
-            {
-                MessageBox.Show($" Resposta errada! A correta era: {respostaCorreta}");
-            }
+            VerificarResultado(alternativa_A.Text);
         }
 
         private void btn_B_Click(object sender, RoutedEventArgs e)
         {
-            update_pergunta();
-            if (alternativa_B.Text == respostaCorreta)
-            {
-                MessageBox.Show(" Resposta correta!");
-            }
-            else
-            {
-                MessageBox.Show($" Resposta errada! A correta era: {respostaCorreta}");
-            }
+            VerificarResultado(alternativa_B.Text);
         }
 
         private void btn_C_Click(object sender, RoutedEventArgs e)
         {
-            update_pergunta();
-            if (alternativa_C.Text == respostaCorreta)
-            {
-                MessageBox.Show(" Resposta correta!");
-            }
-            else
-            {
-                MessageBox.Show($" Resposta errada! A correta era: {respostaCorreta}");
-            }
+            VerificarResultado(alternativa_C.Text);
         }
 
         private void btn_D_Click(object sender, RoutedEventArgs e)
         {
-            update_pergunta();
-            if (alternativa_D.Text == respostaCorreta)
+            VerificarResultado(alternativa_D.Text);
+        }
+
+        private void VerificarResultado(string escolha)
+        {
+            if (escolha == respostaCorreta)
             {
-                MessageBox.Show(" Resposta correta!");
+                MessageBox.Show("Resposta correta!");
             }
             else
             {
-                MessageBox.Show($" Resposta errada! A correta era: {respostaCorreta}");
+                MessageBox.Show($"Resposta errada! A correta era: {respostaCorreta}");
             }
+            update_pergunta();  // Atualiza para a próxima pergunta
+
         }
     }
 }
