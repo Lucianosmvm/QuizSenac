@@ -23,6 +23,7 @@ namespace QuizSenac
     /// </summary>
     public partial class Pergunta1 : Page
     {
+        private List<string> perguntasUsadas = new List<string>();
         private string respostaCorreta;
         private DispatcherTimer cronometro = new DispatcherTimer();
         private int tempoRestante;  // Variável de instância para o tempo restante
@@ -51,6 +52,16 @@ namespace QuizSenac
             MySqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
+                if (perguntasUsadas.Contains(reader["PerguntasID"].ToString()))
+                {
+                    reader.Close();
+                    update_pergunta();  // Chama recursivamente para obter uma nova pergunta
+                }
+                else
+                {
+                    perguntasUsadas.Add(reader["PerguntasID"].ToString());
+                }
+
                 respostaCorreta = reader["respostaCorreta"].ToString();
                 txt_pergunta.Text = reader["Pergunta"].ToString();
                 alternativa_A.Text = reader["opA"].ToString();
@@ -86,7 +97,7 @@ namespace QuizSenac
         {
             VerificarResultado(t1.Text);
 
-            
+
 
 
         }
@@ -95,21 +106,21 @@ namespace QuizSenac
         {
             VerificarResultado(t2.Text);
 
-            
+
         }
 
         private void btn_C_Click(object sender, RoutedEventArgs e)
         {
             VerificarResultado(t3.Text);
 
-           
+
         }
 
         private void btn_D_Click(object sender, RoutedEventArgs e)
         {
             VerificarResultado(t4.Text);
 
-         
+
         }
 
         private async Task VerificarResultado(string escolha)
@@ -119,7 +130,7 @@ namespace QuizSenac
             if (escolha == respostaCorreta)
             {
                 //MessageBox.Show("Resposta correta!");
-                if (tempoRestante >= 15 )
+                if (tempoRestante >= 15)
                 {
                     lb_resultado.Content = ("+10");
                 }
@@ -140,8 +151,17 @@ namespace QuizSenac
 
             await Task.Delay(1500);  // Espera 2 segundos para mostrar o resultado
             gr_resultado.Visibility = Visibility.Hidden;  // Esconde o grid de resultado
-            update_pergunta();  // Atualiza para a próxima pergunta
+            if (perguntasUsadas.Count >= 5)
+            {
+                // Navega para a página de resultados após 5 perguntas
 
+                NavigationService.Navigate(new Final());
+            }
+            else
+            {
+                update_pergunta();  // Atualiza para a próxima pergunta
+
+            }
         }
     }
 }
