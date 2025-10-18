@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -150,8 +151,35 @@ namespace QuizSenac
                 // Navega para a página de resultados após 5 perguntas
                 NavigationService.Navigate(new Final());
                 var teste = _totalPontos;
+
+                string sql = $"insert into pontos (Pontos) values ({_totalPontos})";
+                MySqlCommand cmd = new MySqlCommand(sql, ConexaoDB.Conexao);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                string query = "INSERT INTO usuarios (Email, Senha) VALUES (@JogadorID, @Pontos)";
+
+                try
+                {
+                  
+                        using (var command = new MySql.Data.MySqlClient.MySqlCommand(query, ConexaoDB.Conexao))
+                        {
+                            command.Parameters.AddWithValue("@JogadorID", "pedro");
+                            command.Parameters.AddWithValue("@Pontos", _totalPontos );
+                            command.ExecuteNonQuery();
+                        }
+                    
+                    MessageBox.Show("E-mail e senha cadastrados com sucesso!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao cadastrar: " + ex.Message);
+                }
+
             }
             else
+            {
+
+            }
             {
                 update_pergunta();  // Atualiza para a próxima pergunta
             }
