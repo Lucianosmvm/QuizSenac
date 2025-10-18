@@ -27,23 +27,25 @@ namespace QuizSenac
         private string respostaCorreta;
         private DispatcherTimer cronometro = new DispatcherTimer();
         private int tempoRestante;  // Variável de instância para o tempo restante
+        private int _perguntaNum = 1;
+        private int _totalPontos;
 
         public Pergunta1()
         {
             InitializeComponent();
             gr_resultado.Visibility = Visibility.Hidden; // Esconde o grid de resultado inicialmente
-            var num = 1;
-            lab_per1.Content += $" {num++}";
+
 
             // Adicionar o manipulador de evento Tick apenas uma vez
             cronometro.Tick += Cronometro_Tick;
             cronometro.Interval = TimeSpan.FromSeconds(1);  // Intervalo de 1 segundo
-
             update_pergunta();  // Inicia a primeira pergunta
         }
 
         private void update_pergunta()
         {
+            lab_per1.Content = $" Pergunta {_perguntaNum++}";
+
             // Consulta para obter a pergunta
             Random rand = new Random();
             var idx = rand.Next(1, 20);
@@ -96,31 +98,21 @@ namespace QuizSenac
         private void btn_A_Click(object sender, RoutedEventArgs e)
         {
             VerificarResultado(t1.Text);
-
-
-
-
         }
 
         private void btn_B_Click(object sender, RoutedEventArgs e)
         {
             VerificarResultado(t2.Text);
-
-
         }
 
         private void btn_C_Click(object sender, RoutedEventArgs e)
         {
             VerificarResultado(t3.Text);
-
-
         }
 
         private void btn_D_Click(object sender, RoutedEventArgs e)
         {
             VerificarResultado(t4.Text);
-
-
         }
 
         private async Task VerificarResultado(string escolha)
@@ -133,10 +125,12 @@ namespace QuizSenac
                 if (tempoRestante >= 15)
                 {
                     lb_resultado.Content = ("+10");
+                    _totalPontos += 10;
                 }
                 else if (tempoRestante >= 1)
                 {
                     lb_resultado.Content = ("+5");
+                    _totalPontos += 5;
                 }
                 else
                 {
@@ -149,18 +143,17 @@ namespace QuizSenac
                 lb_resultado.Content = ("0");
             }
 
-            await Task.Delay(1500);  // Espera 2 segundos para mostrar o resultado
+            await Task.Delay(1000);  // Espera 2 segundos para mostrar o resultado
             gr_resultado.Visibility = Visibility.Hidden;  // Esconde o grid de resultado
             if (perguntasUsadas.Count >= 5)
             {
                 // Navega para a página de resultados após 5 perguntas
-
                 NavigationService.Navigate(new Final());
+                var teste = _totalPontos;
             }
             else
             {
                 update_pergunta();  // Atualiza para a próxima pergunta
-
             }
         }
     }
