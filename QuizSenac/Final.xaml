@@ -13,5 +13,6 @@
                Stretch="UniformToFill"
                VerticalAlignment="Stretch"
                HorizontalAlignment="Stretch"/>
+        <Button x:Name="btn_Sair" Content="Sair" HorizontalAlignment="Center" Margin="0,935,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Click="btn_Sair_Click"/>
     </Grid>
 </Page>

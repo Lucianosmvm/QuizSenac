@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Diagnostics;
 using System.Linq;
@@ -146,42 +147,39 @@ namespace QuizSenac
 
             await Task.Delay(1000);  // Espera 2 segundos para mostrar o resultado
             gr_resultado.Visibility = Visibility.Hidden;  // Esconde o grid de resultado
-            if (perguntasUsadas.Count >= 5)
+
+            if (perguntasUsadas.Count >= 5)// Navega para a página de resultados após 5 perguntas
             {
-                // Navega para a página de resultados após 5 perguntas
+                Login login = new Login();
+                var name = login.txb_nome.Text.Trim();
+                InsertPontos(name, _totalPontos);
+
                 NavigationService.Navigate(new Final());
-                var teste = _totalPontos;
-
-                string sql = $"insert into pontos (Pontos) values ({_totalPontos})";
-                MySqlCommand cmd = new MySqlCommand(sql, ConexaoDB.Conexao);
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                string query = "INSERT INTO usuarios (Email, Senha) VALUES (@JogadorID, @Pontos)";
-
-                try
-                {
-                  
-                        using (var command = new MySql.Data.MySqlClient.MySqlCommand(query, ConexaoDB.Conexao))
-                        {
-                            command.Parameters.AddWithValue("@JogadorID", "pedro");
-                            command.Parameters.AddWithValue("@Pontos", _totalPontos );
-                            command.ExecuteNonQuery();
-                        }
-                    
-                    MessageBox.Show("E-mail e senha cadastrados com sucesso!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao cadastrar: " + ex.Message);
-                }
-
             }
             else
             {
-
-            }
-            {
                 update_pergunta();  // Atualiza para a próxima pergunta
+            }
+
+            
+        }
+        private void InsertPontos(string nome, int pontos)
+        {
+            try
+            {
+                string sql = "INSERT INTO pontos (Nome, Pontos) VALUES (@Nome, @Pontos)";
+                using (var cmdPontos = new MySqlCommand(sql, ConexaoDB.Conexao))
+                {
+                    cmdPontos.Parameters.AddWithValue("@Nome", nome);
+                    cmdPontos.Parameters.AddWithValue("@Pontos", pontos);
+                    cmdPontos.ExecuteNonQuery();
+                }
+
+                Console.WriteLine("Dados inseridos com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao inserir dados: " + ex.Message);
             }
         }
     }
