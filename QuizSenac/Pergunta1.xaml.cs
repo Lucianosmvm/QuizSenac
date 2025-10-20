@@ -136,11 +136,11 @@ namespace QuizSenac
             await Task.Delay(1000);  // Espera 2 segundos para mostrar o resultado
             gr_resultado.Visibility = Visibility.Hidden;  // Esconde o grid de resultado
 
-            if (perguntasUsadas.Count >= 5)// Navega para a página de resultados após 20 perguntas
+            if (perguntasUsadas.Count >= 20)// Navega para a página de resultados após 20 perguntas
             {
                 InsertPontos(NomeJogador, _totalPontos);
 
-                NavigationService.Navigate(new Final());
+                NavigationService.Navigate(new Final(_totalPontos));
             }
             else
             {

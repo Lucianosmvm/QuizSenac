@@ -20,14 +20,21 @@ namespace QuizSenac
     /// </summary>
     public partial class Final : Page
     {
-        public Final()
+        public Final(int totalPontos)
         {
             InitializeComponent();
+            lb_total.Content = totalPontos.ToString();
+            AwaitPontosAsync();
+        }
+
+        private  async Task AwaitPontosAsync()
+        {
+            await Task.Delay(1000);  // Espera 2 segundos para mostrar o resultado
+            gr_total.Visibility = Visibility.Hidden;
         }
 
         private void btn_Sair_Click(object sender, RoutedEventArgs e)
         {
-            
             NavigationService.Navigate(new BemVindo());
         }
     }
