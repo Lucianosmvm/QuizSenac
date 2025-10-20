@@ -54,7 +54,7 @@ namespace QuizSenac
                     perguntasUsadas.Add(reader["PerguntasID"].ToString());
                 }
 
-                respostaCorreta = reader["respostaCorreta"].ToString();
+                respostaCorreta = reader["respostaCorreta"].ToString().Replace(" ", "");
                 txt_pergunta.Text = reader["Pergunta"].ToString();
                 alternativa_A.Text = reader["opA"].ToString();
                 alternativa_B.Text = reader["opB"].ToString();
