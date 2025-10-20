@@ -27,7 +27,7 @@ namespace QuizSenac
 
         private void btn_Sair_Click(object sender, RoutedEventArgs e)
         {
-            ConexaoDB.FecharConexao();
+            
             NavigationService.Navigate(new BemVindo());
         }
     }

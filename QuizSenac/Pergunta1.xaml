@@ -28,7 +28,7 @@
         <StackPanel Grid.Row="3" Margin="100,20,40,40">
             <!-- Alternativa A -->
             <Button x:Name="btn_A" Height="95" Margin="0,10" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Click="btn_A_Click">
-                <Border Background="#223244" CornerRadius="10" BorderBrush="White" BorderThickness="3" Width="402">
+                <Border Background="#223244" CornerRadius="10" BorderBrush="White" BorderThickness="3" Width="780">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Border Width="40" Height="35" Background="White" CornerRadius="6" Margin="15,0,15,0" VerticalAlignment="Center">
                             <TextBlock x:Name="t1" Text="A" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22"/>
@@ -39,8 +39,8 @@
             </Button>
 
             <!-- Alternativa B -->
-            <Button x:Name="btn_B" Height="95" Margin="0,10" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Click="btn_B_Click" Width="402">
-                <Border Background="#223244" CornerRadius="10" BorderBrush="White" BorderThickness="3" Width="402">
+            <Button x:Name="btn_B" Height="95" Margin="0,10" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Click="btn_B_Click" Width="782">
+                <Border Background="#223244" CornerRadius="10" BorderBrush="White" BorderThickness="3" Width="780">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Border Width="40" Height="35" Background="White" CornerRadius="6" Margin="15,0,15,0" VerticalAlignment="Center">
                             <TextBlock x:Name="t2" Text="B" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22"/>
@@ -52,8 +52,8 @@
 
             <!-- Alternativa C -->
             <Button x:Name="btn_C" Height="95" Margin="0,10" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Click="btn_C_Click">
-                <Border Background="#223244" CornerRadius="10" BorderBrush="White" BorderThickness="3" Width="402">
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Border Background="#223244" CornerRadius="10" BorderBrush="White" BorderThickness="3" Width="780">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Width="775">
                         <Border Width="40" Height="35" Background="White" CornerRadius="6" Margin="15,0,15,0" VerticalAlignment="Center">
                             <TextBlock x:Name="t3" Text="C" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22"/>
                         </Border>
@@ -63,8 +63,8 @@
             </Button>
 
             <!-- Alternativa D -->
-            <Button x:Name="btn_D" Height="95" Margin="0,10" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Click="btn_D_Click">
-                <Border Background="#223244" CornerRadius="10" BorderBrush="White" BorderThickness="3" Width="402">
+            <Button x:Name="btn_D" Height="95" Margin="0,10" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Click="btn_D_Click" Width="780">
+                <Border Background="#223244" CornerRadius="10" BorderBrush="White" BorderThickness="3" Width="779">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Border Width="40" Height="35" Background="White" CornerRadius="6" Margin="15,0,15,0" VerticalAlignment="Center">
                             <TextBlock x:Name="t4" Text="D" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22"/>
