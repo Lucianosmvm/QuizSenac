@@ -34,21 +34,18 @@ namespace QuizSenac
 
         private void btn_login_Click_1(object sender, RoutedEventArgs e)
         {
-            string nome = txb_nome.Text.Trim();
-            RegistrarJogador(nome);  // Agora sim, registra ao clicar
-            NavigationService.Navigate(new Pergunta1());
-        }
+            var JogadorName = txb_nome.Text.Trim();
 
-        private void RegistrarJogador(string nome)
-        {
-            string sql = "INSERT INTO jogador (Nome) VALUES (@nome)";
-            using (MySqlCommand cmd = new MySqlCommand(sql, ConexaoDB.Conexao))
+            if (!string.IsNullOrEmpty(JogadorName))
             {
-                cmd.Parameters.AddWithValue("@nome", nome);
-                cmd.ExecuteNonQuery();
+                Pergunta1 pgPerguntas = new Pergunta1(JogadorName);
+                NavigationService.Navigate(pgPerguntas);
             }
-        }
+            else
+            {
+                MessageBox.Show("Insira seu nome!");
+            }
 
-      
-    }       
+        }
+    }
 }

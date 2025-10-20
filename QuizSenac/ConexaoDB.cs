@@ -13,7 +13,7 @@ namespace QuizSenac
             {
                 if (Conexao == null)
                 {
-                    Conexao = new MySqlConnection("server=localhost;uid=root;pwd=root;database=Quiz");
+                    Conexao = new MySqlConnection("server=localhost;uid=root;pwd=Lsm@1596357;database=Quiz");
                     Conexao.Open();
                 }
             }

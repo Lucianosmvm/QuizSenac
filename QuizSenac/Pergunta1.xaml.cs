@@ -1,28 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace QuizSenac
 {
-    /// <summary>
-    /// Interação lógica para Pergunta1.xam
-    /// </summary>
     public partial class Pergunta1 : Page
     {
         private List<string> perguntasUsadas = new List<string>();
@@ -31,10 +14,15 @@ namespace QuizSenac
         private int tempoRestante;  // Variável de instância para o tempo restante
         private int _perguntaNum = 1;
         private int _totalPontos;
+        private string NomeJogador;
 
-        public Pergunta1()
+        private Login login;
+
+        public Pergunta1(string nomeJogador)
         {
             InitializeComponent();
+
+            NomeJogador = nomeJogador;
             gr_resultado.Visibility = Visibility.Hidden; // Esconde o grid de resultado inicialmente
 
 
@@ -46,11 +34,10 @@ namespace QuizSenac
 
         private void update_pergunta()
         {
-            lab_per1.Content = $" Pergunta {_perguntaNum++}";
 
             // Consulta para obter a pergunta
             Random rand = new Random();
-            var idx = rand.Next(1, 20);
+            var idx = rand.Next(1, 39);
             string sql = $"select * from perguntas where PerguntasID = {idx}";
             MySqlCommand cmd = new MySqlCommand(sql, ConexaoDB.Conexao);
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -63,6 +50,7 @@ namespace QuizSenac
                 }
                 else
                 {
+                    lab_per1.Content = $" Pergunta {_perguntaNum++}";
                     perguntasUsadas.Add(reader["PerguntasID"].ToString());
                 }
 
@@ -148,11 +136,9 @@ namespace QuizSenac
             await Task.Delay(1000);  // Espera 2 segundos para mostrar o resultado
             gr_resultado.Visibility = Visibility.Hidden;  // Esconde o grid de resultado
 
-            if (perguntasUsadas.Count >= 5)// Navega para a página de resultados após 5 perguntas
+            if (perguntasUsadas.Count >= 5)// Navega para a página de resultados após 20 perguntas
             {
-                Login login = new Login();
-                var name = login.txb_nome.Text.Trim();
-                InsertPontos(name, _totalPontos);
+                InsertPontos(NomeJogador, _totalPontos);
 
                 NavigationService.Navigate(new Final());
             }
@@ -160,22 +146,19 @@ namespace QuizSenac
             {
                 update_pergunta();  // Atualiza para a próxima pergunta
             }
-
-            
         }
+
         private void InsertPontos(string nome, int pontos)
         {
             try
             {
-                string sql = "INSERT INTO pontos (Nome, Pontos) VALUES (@Nome, @Pontos)";
+                string sql = "INSERT INTO Jogadores (Nome, Pontos) VALUES (@nome, @pontos)";
                 using (var cmdPontos = new MySqlCommand(sql, ConexaoDB.Conexao))
                 {
-                    cmdPontos.Parameters.AddWithValue("@Nome", nome);
-                    cmdPontos.Parameters.AddWithValue("@Pontos", pontos);
+                    cmdPontos.Parameters.AddWithValue("@nome", nome);
+                    cmdPontos.Parameters.AddWithValue("@pontos", pontos);
                     cmdPontos.ExecuteNonQuery();
                 }
-
-                Console.WriteLine("Dados inseridos com sucesso!");
             }
             catch (Exception ex)
             {
