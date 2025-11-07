@@ -9,19 +9,19 @@
     <Grid Background="White">
         <Image x:Name="img_bemvindo"
                Stretch="Fill"
-               Source="/Quiz Senac 2025 (4).png"/>
+               Source="/1.png"/>
 
         <Button x:Name="btn_iniciar"
                 Content="Iniciar"
-                Width="250"
-                Height="90"
-                FontSize="28"
+                Width="359"
+                Height="192"
+                FontSize="60"
                 FontWeight="Bold"
                 Foreground="#FF123D70"
                 BorderBrush="White"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"
-                Margin="0,0,0,60"
+                VerticalAlignment="Top"
+                Margin="0,771,0,0"
                 Click="btn_iniciar_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

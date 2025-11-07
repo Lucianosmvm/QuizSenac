@@ -13,7 +13,7 @@
                HorizontalAlignment="Stretch"
                VerticalAlignment="Stretch"/>
 
-        <!-- Card centralizado -->
+
         <Border Width="700" Height="650"
                 Background="White"
                 CornerRadius="10"
@@ -28,22 +28,20 @@
             </Border.Effect>
 
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock Text="LOGIN"
+
+                <TextBlock
                            FontSize="72"
                            FontWeight="Bold"
                            Foreground="#FF123D70"
-                           HorizontalAlignment="Center"
-                           Margin="0,0,0,30"/>
-
-                <Label
-            HorizontalAlignment="Center" FontSize="36" FontWeight="Bold" Foreground="#FF123D70" Content="Nome:"/>
+                           Height="107" Width="388"><Run Language="pt-br" Text="    "/><Run Text="LOGIN"/></TextBlock>
+                <Label FontSize="56" FontWeight="Bold" Foreground="#FF123D70" Content="Nome:" VerticalAlignment="Top"/>
 
                 <TextBox
-            Width="411" x:Name="txb_nome" Margin="0,40,0,25" Height="51" FontSize="18" BorderThickness="2" BorderBrush="#FFF09C20"/>
+            Width="567" x:Name="txb_nome" Margin="0,40,0,25" Height="63" FontSize="38" BorderThickness="2" BorderBrush="#FFF09C20"/>
                 <Button
-                        Width="228"
-                        Height="114"
-                        x:Name="btn_login" FontSize="36" FontWeight="Bold" Foreground="#FF123D70" Content="Entrar" BorderBrush="White" Click="btn_login_Click_1">
+                        Width="282"
+                        Height="189"
+                        x:Name="btn_login" FontSize="46" FontWeight="Bold" Foreground="#FF123D70" Content="Entrar" BorderBrush="White" Click="btn_login_Click_1">
                     <Button.Background
             >
                         <LinearGradientBrush
