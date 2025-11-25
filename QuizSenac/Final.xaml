@@ -16,7 +16,7 @@
         <Button x:Name="btn_Sair" Content="Sair" HorizontalAlignment="Center" Margin="0,935,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Click="btn_Sair_Click"/>
        
         <Grid x:Name="gr_total" HorizontalAlignment="Center" Height="1080" VerticalAlignment="Center" Width="1920" Background="White">
-            <Label x:Name="lb_total" Content="Label" HorizontalAlignment="Center" VerticalAlignment="Center" Height="152" Width="340" FontSize="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
+            <Label x:Name="lb_total" Content="Label" HorizontalAlignment="Center" VerticalAlignment="Center" Height="152" Width="340" FontSize="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Foreground="#FFFF9100"/>
         </Grid>
         
     </Grid>

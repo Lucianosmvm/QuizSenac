@@ -1,18 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace QuizSenac
 {
@@ -24,6 +15,11 @@ namespace QuizSenac
         public Login()
         {
             InitializeComponent();
+
+            // permite capturar o Enter
+            this.KeyDown += Window_KeyDown;
+            this.Focusable = true;
+            this.Loaded += (s, e) => this.Focus();
         }
 
         private void txb_nome_TextChanged(object sender, TextChangedEventArgs e)
@@ -34,6 +30,11 @@ namespace QuizSenac
 
         private void btn_login_Click_1(object sender, RoutedEventArgs e)
         {
+            teste();
+        }
+
+        private void teste()
+        {
             var JogadorName = txb_nome.Text.Trim();
 
             if (!string.IsNullOrEmpty(JogadorName))
@@ -43,9 +44,17 @@ namespace QuizSenac
             }
             else
             {
-                MessageBox.Show("Insira seu nome!");
+                MessageBox.Show("Nome inválido. \nPor Favor insira seu nome!");
             }
+        }
 
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                // chama exatamente o clique do botão
+                btn_login_Click_1(btn_login, null);
+            }
         }
     }
 }

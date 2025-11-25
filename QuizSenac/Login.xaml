@@ -7,7 +7,7 @@
       Title="Login">
 
     <Grid Background="White">
-        <!-- Fundo -->
+     
         <Image Source="/Quiz Senac 2025 (8).png"
                Stretch="UniformToFill"
                HorizontalAlignment="Stretch"
@@ -31,17 +31,16 @@
 
                 <TextBlock
                            FontSize="72"
-                           FontWeight="Bold"
                            Foreground="#FF123D70"
-                           Height="107" Width="388"><Run Language="pt-br" Text="    "/><Run Text="LOGIN"/></TextBlock>
-                <Label FontSize="56" FontWeight="Bold" Foreground="#FF123D70" Content="Nome:" VerticalAlignment="Top"/>
+                           Height="107" Width="388" FontFamily="Arial" FontWeight="Bold"><Run Language="pt-br" Text="    "/><Run Text="LOGIN"/></TextBlock>
+                <Label FontSize="56" FontWeight="Bold" Foreground="#FF123D70" Content="Nome:" FontFamily="Arial" HorizontalAlignment="Center"/>
 
                 <TextBox
-            Width="567" x:Name="txb_nome" Margin="0,40,0,25" Height="63" FontSize="38" BorderThickness="2" BorderBrush="#FFF09C20"/>
+            Width="567" x:Name="txb_nome" Margin="0,40,0,25" Height="63" FontSize="38" BorderThickness="2" BorderBrush="#FFF09C20" FontFamily="Arial" Foreground="#FFFF9100"/>
                 <Button
                         Width="282"
                         Height="189"
-                        x:Name="btn_login" FontSize="46" FontWeight="Bold" Foreground="#FF123D70" Content="Entrar" BorderBrush="White" Click="btn_login_Click_1">
+                        x:Name="btn_login" FontSize="46" FontWeight="Bold" Foreground="#FF123D70" Content="Entrar" BorderBrush="White" Click="btn_login_Click_1" FontFamily="Arial">
                     <Button.Background
             >
                         <LinearGradientBrush

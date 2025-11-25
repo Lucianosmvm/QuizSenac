@@ -15,19 +15,19 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Image x:Name="img_per1" Grid.RowSpan="4" Stretch="UniformToFill" Source="/Quiz Senac 2025 (6).png" Margin="3,0,-3,0"/>
+        <Image x:Name="img_per1" Grid.RowSpan="4" Stretch="UniformToFill" Source="/Quiz Senac 2025 (6).png" Margin="11,0,-11,0"/>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="20"/>
 
-        <Label x:Name="lab_per1" Grid.Row="1" Content="Pergunta" Margin="35,20" 
-               Foreground="#FF103F6B" FontSize="34" FontFamily="Sans Serif Collection" FontWeight="Bold"/>
+        <Label x:Name="lab_per1" Grid.Row="1" Content="Pergunta" Margin="107,20,-37,20" 
+               Foreground="#FF103F6B" FontSize="34" FontFamily="Arial" FontWeight="Bold"/>
 
-        <TextBlock x:Name="txt_pergunta" Grid.Row="2" Margin="44,10,44,20" TextWrapping="Wrap" 
-                   Text="pergunta" FontSize="30" FontFamily="Sans Serif Collection"/>
+        <TextBlock x:Name="txt_pergunta" Grid.Row="2" Margin="116,10,-28,20" TextWrapping="Wrap" 
+                   Text="pergunta" FontSize="30" FontFamily="Arial"/>
 
         <StackPanel Grid.Row="3" Margin="100,20,40,40">
             <!-- Alternativa A -->
-            <Button x:Name="btn_A" Height="95" Margin="0,10" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Click="btn_A_Click">
+            <Button x:Name="btn_A" Height="95" Margin="0,10" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Click="btn_A_Click" FontFamily="Arial">
                 <Border Background="#223244" CornerRadius="10" BorderBrush="White" BorderThickness="3" Width="780">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Border Width="40" Height="35" Background="White" CornerRadius="6" Margin="15,0,15,0" VerticalAlignment="Center">
@@ -39,7 +39,7 @@
             </Button>
 
             <!-- Alternativa B -->
-            <Button x:Name="btn_B" Height="95" Margin="0,10" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Click="btn_B_Click" Width="782">
+            <Button x:Name="btn_B" Height="95" Margin="0,10" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Click="btn_B_Click" Width="782" FontFamily="Arial">
                 <Border Background="#223244" CornerRadius="10" BorderBrush="White" BorderThickness="3" Width="780">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Border Width="40" Height="35" Background="White" CornerRadius="6" Margin="15,0,15,0" VerticalAlignment="Center">
@@ -57,7 +57,7 @@
                         <Border Width="40" Height="35" Background="White" CornerRadius="6" Margin="15,0,15,0" VerticalAlignment="Center">
                             <TextBlock x:Name="t3" Text="C" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22"/>
                         </Border>
-                        <TextBlock x:Name="alternativa_C" VerticalAlignment="Center" Foreground="White" FontSize="22" TextAlignment="Left"><Run Language="pt-br" Text="tt"/></TextBlock>
+                        <TextBlock x:Name="alternativa_C" VerticalAlignment="Center" Foreground="White" FontSize="22" TextAlignment="Left" FontFamily="Arial"><Run Language="pt-br" Text="tt"/></TextBlock>
                     </StackPanel>
                 </Border>
             </Button>
@@ -69,7 +69,7 @@
                         <Border Width="40" Height="35" Background="White" CornerRadius="6" Margin="15,0,15,0" VerticalAlignment="Center">
                             <TextBlock x:Name="t4" Text="D" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22"/>
                         </Border>
-                        <TextBlock x:Name="alternativa_D" VerticalAlignment="Center" Foreground="White" FontSize="22" TextAlignment="Left" Text="textexto"/>
+                        <TextBlock x:Name="alternativa_D" VerticalAlignment="Center" Foreground="White" FontSize="22" TextAlignment="Left" Text="textexto" FontFamily="Arial"/>
                     </StackPanel>
                 </Border>
             </Button>
@@ -77,13 +77,13 @@
         <Grid Grid.Row="3"/>
 
         <Grid x:Name="gr_resultado" Background="White" Grid.RowSpan="4" HorizontalAlignment="Center" Width="1920" Height="1080" VerticalAlignment="Top" Visibility="Hidden">
-            <Label x:Name="lb_resultado" Content="Label" Height="128" Width="232" RenderTransformOrigin="0.486,1.15" FontSize="90" VerticalContentAlignment="Stretch" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="Black"/>
+            <Label x:Name="lb_resultado" Content="Label" Height="128" Width="232" RenderTransformOrigin="0.486,1.15" FontSize="90" VerticalContentAlignment="Stretch" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="#FFFF9100"/>
 
         </Grid>
         <Label Content="" Foreground="White" FontFamily="Sans Serif Collection" FontWeight="Bold" FontSize="34" Margin="586,17,1208,137" Grid.RowSpan="2"/>
-        <Label x:Name="lb_Tempo" Foreground="White" FontFamily="Sans Serif Collection" FontWeight="Bold" 
-                   HorizontalContentAlignment="Center" FontSize="34" VerticalContentAlignment="Center" 
-                   Margin="681,17,1115,137" Grid.RowSpan="2"/>
+        <Label x:Name="lb_Tempo" Foreground="#FFFF9100" FontFamily="Arial" FontWeight="Bold" 
+                   HorizontalContentAlignment="Center" FontSize="50" VerticalContentAlignment="Center" 
+                   Margin="693,17,1103,137" Grid.RowSpan="2"/>
 
     </Grid>
 </Page>

@@ -9,7 +9,7 @@
     <Grid Background="White">
         <Image x:Name="img_bemvindo"
                Stretch="Fill"
-               Source="/1.png"/>
+               Source="/Quiz Senac 2025 (10).png" Margin="0,-3,0,3"/>
 
         <Button x:Name="btn_iniciar"
                 Content="Iniciar"
@@ -30,6 +30,28 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+        <TextBlock TextWrapping="Wrap"
+           FontSize="40"
+           TextAlignment="Center"
+           LineHeight="28" VerticalAlignment="Top" Foreground="#FF123D70" Margin="0,333,0,0">
+            
+            
+            
+            Este projeto foi desenvolvido pela turma de TI – Módulo de Back-End, 
+            <LineBreak/>
+            com o objetivo de testar conhecimentos gerais de forma dinâmica e divertida.
+            <LineBreak/>
+            O quiz contém 10 perguntas, 
+            <LineBreak/>
+            avaliadas tanto pela resposta correta quanto pelo tempo de resolução,
+            <LineBreak/>
+            tornando a experiência mais desafiadora e competitiva.
+            <LineBreak/>
+            Prepare-se, 
+            <LineBreak/>
+            responda o mais rápido possível e descubra sua pontuação final. Boa sorte!
+        </TextBlock>
+        <Label FontSize="62" FontWeight="Bold" Foreground="#FF123D70" Content="Bem-vindo ao Quiz Interativo!" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,218,0,0"/>
     </Grid>
 </Page>
 
