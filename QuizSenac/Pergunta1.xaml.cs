@@ -34,7 +34,6 @@ namespace QuizSenac
 
         private void update_pergunta()
         {
-
             // Consulta para obter a pergunta
             Random rand = new Random();
             var idx = rand.Next(1, 39);
@@ -60,6 +59,11 @@ namespace QuizSenac
                 alternativa_B.Text = reader["opB"].ToString();
                 alternativa_C.Text = reader["opC"].ToString();
                 alternativa_D.Text = reader["opD"].ToString();
+            }
+            else
+            {
+                reader.Close();
+                update_pergunta();
             }
             reader.Close();
 
@@ -111,7 +115,15 @@ namespace QuizSenac
 
             if (escolha == respostaCorreta)
             {
-                //MessageBox.Show("Resposta correta!");
+
+                int tempoMax = 30;
+                int tempoGasto = 12;
+                int pontuacaoMax = 100;
+
+                int pontuacao = (int)(pontuacaoMax * Math.Exp(-3 * (tempoGasto / (double)tempoMax)));
+
+                _totalPontos += pontuacao;
+
                 if (tempoRestante >= 15)
                 {
                     lb_resultado.Content = ("+10");
@@ -136,7 +148,7 @@ namespace QuizSenac
             await Task.Delay(1000);  // Espera 2 segundos para mostrar o resultado
             gr_resultado.Visibility = Visibility.Hidden;  // Esconde o grid de resultado
 
-            if (perguntasUsadas.Count >= 20)// Navega para a página de resultados após 20 perguntas
+            if (perguntasUsadas.Count >= 10)// Navega para a página de resultados após 20 perguntas
             {
                 InsertPontos(NomeJogador, _totalPontos);
 
@@ -148,7 +160,7 @@ namespace QuizSenac
             }
         }
 
-        private void InsertPontos(string nome, int pontos)
+        private void InsertPontos(string nome, double pontos)
         {
             try
             {
