@@ -22,12 +22,14 @@ namespace QuizSenac
     {
         public Final(int totalPontos)
         {
+            ((App)Application.Current).isFinished = true;
             InitializeComponent();
             lb_total.Content = totalPontos.ToString();
             AwaitPontosAsync();
+            ConexaoDB.FecharConexao();
         }
 
-        private  async Task AwaitPontosAsync()
+        private async Task AwaitPontosAsync()
         {
             await Task.Delay(1000);  // Espera 2 segundos para mostrar o resultado
             gr_total.Visibility = Visibility.Hidden;

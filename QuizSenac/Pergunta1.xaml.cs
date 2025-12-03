@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Google.Protobuf.WellKnownTypes;
+using MySql.Data.MySqlClient;
+using Mysqlx.Notice;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -23,18 +25,20 @@ namespace QuizSenac
             InitializeComponent();
 
             NomeJogador = nomeJogador;
-            gr_resultado.Visibility = Visibility.Hidden; // Esconde o grid de resultado inicialmente
+            gr_resultado.Visibility = Visibility.Hidden;
 
-
-            // Adicionar o manipulador de evento Tick apenas uma vez
             cronometro.Tick += Cronometro_Tick;
-            cronometro.Interval = TimeSpan.FromSeconds(1);  // Intervalo de 1 segundo
-            update_pergunta();  // Inicia a primeira pergunta
+            cronometro.Interval = TimeSpan.FromSeconds(1);
+            update_pergunta();
         }
 
         private void update_pergunta()
         {
-            // Consulta para obter a pergunta
+            if (((App)Application.Current).isFinished)
+            {
+                return;
+            }
+
             Random rand = new Random();
             var idx = rand.Next(1, 39);
             string sql = $"select * from perguntas where PerguntasID = {idx}";
