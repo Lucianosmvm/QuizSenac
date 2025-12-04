@@ -81,7 +81,7 @@
 
         </Grid>
         <Label Content="" Foreground="White" FontFamily="Sans Serif Collection" FontWeight="Bold" FontSize="34" Margin="586,17,1208,137" Grid.RowSpan="2"/>
-        <Label x:Name="lb_Tempo" Foreground="#FFFF9100" FontFamily="Arial" FontWeight="Bold" 
+        <Label x:Name="lb_Tempo" Foreground="White" FontFamily="Arial" FontWeight="Bold" 
                    HorizontalContentAlignment="Center" FontSize="50" VerticalContentAlignment="Center" 
                    Margin="693,17,1103,137" Grid.RowSpan="2"/>
 

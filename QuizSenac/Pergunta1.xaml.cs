@@ -61,6 +61,13 @@ namespace QuizSenac
                 alternativa_C.Text = reader["opC"].ToString();
                 alternativa_D.Text = reader["opD"].ToString();
             }
+            else
+            {
+                reader.Close();
+                update_pergunta();  // Chama recursivamente para obter uma nova pergunta
+
+            }
+
             reader.Close();
 
             updateTime();  // Atualiza o tempo para a nova pergunta
@@ -129,14 +136,14 @@ namespace QuizSenac
             }
             else
             {
-                //MessageBox.Show($"Resposta errada! A correta era: {respostaCorreta}");
+                // MessageBox.Show($"Resposta errada! A correta era: {respostaCorreta}");
                 lb_resultado.Content = ("0");
             }
 
             await Task.Delay(1000);  // Espera 2 segundos para mostrar o resultado
             gr_resultado.Visibility = Visibility.Hidden;  // Esconde o grid de resultado
 
-            if (perguntasUsadas.Count >= 20)// Navega para a página de resultados após 20 perguntas
+            if (perguntasUsadas.Count >= 10)// Navega para a página de resultados após 10 perguntas
             {
                 InsertPontos(NomeJogador, _totalPontos);
 
