@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -19,12 +20,14 @@ namespace QuizSenac
             this.KeyDown += Window_KeyDown;
             this.Focusable = true;
             this.Loaded += (s, e) => this.Focus();
+
+
         }
 
         private void btn_iniciar_Click(object sender, RoutedEventArgs e)
         {
             // Abrir conexão com o banco quiz_jogador
-            ConexaoDB.AbrirConexao("Server=localhost;Database=quiz_jogador;User Id=root;Password=root;");
+            ConexaoDB.AbrirConexao();
 
             if (ConexaoDB.Conexao != null &&
                 ConexaoDB.Conexao.State == System.Data.ConnectionState.Open)
@@ -49,6 +52,40 @@ namespace QuizSenac
                 // Chama exatamente o clique do botão iniciar
                 btn_iniciar_Click(btn_iniciar, new RoutedEventArgs(Button.ClickEvent));
             }
+
+            if (e.Key == Key.Z)
+            {
+                ExecutarFuncao();
+
+            }
+        }
+
+        static void ExecutarFuncao()
+        {
+            try
+            {
+                ConexaoDB.AbrirConexao();
+
+                if (ConexaoDB.Conexao != null && ConexaoDB.Conexao.State == System.Data.ConnectionState.Open)
+                {
+                    string sql = "TRUNCATE TABLE jogadores";
+                    MySqlCommand cmd = new MySqlCommand(sql, ConexaoDB.Conexao);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    MessageBox.Show("Tabela pontuacao limpa com sucesso!");
+                }
+                else
+                {
+                    MessageBox.Show("Conexão com o banco de dados não está aberta.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao limpar a tabela pontuacao: " + ex.Message);
+            }
+
+            ConexaoDB.FecharConexao();
         }
     }
 }
+

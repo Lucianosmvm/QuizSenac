@@ -7,7 +7,7 @@ namespace QuizSenac
     {
         public static MySqlConnection? Conexao { get; private set; }
 
-        public static void AbrirConexao(string v)
+        public static void AbrirConexao()
         {
             try
             {
@@ -27,7 +27,10 @@ namespace QuizSenac
         public static void FecharConexao()
         {
             if (Conexao != null && Conexao.State == System.Data.ConnectionState.Open)
+            {
                 Conexao.Close();
+                Conexao = null;
+            }
         }
     }
 }

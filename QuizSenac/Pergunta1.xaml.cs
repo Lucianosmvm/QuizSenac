@@ -69,8 +69,8 @@ namespace QuizSenac
                 reader.Close();
                 update_pergunta();
             }
-            reader.Close();
 
+            reader.Close();
             updateTime();  // Atualiza o tempo para a nova pergunta
         }
         private void updateTime()
@@ -145,14 +145,14 @@ namespace QuizSenac
             }
             else
             {
-                //MessageBox.Show($"Resposta errada! A correta era: {respostaCorreta}");
+                // MessageBox.Show($"Resposta errada! A correta era: {respostaCorreta}");
                 lb_resultado.Content = ("0");
             }
 
             await Task.Delay(1000);  // Espera 2 segundos para mostrar o resultado
             gr_resultado.Visibility = Visibility.Hidden;  // Esconde o grid de resultado
 
-            if (perguntasUsadas.Count >= 10)// Navega para a página de resultados após 20 perguntas
+            if (perguntasUsadas.Count >= 10)// Navega para a página de resultados após 10 perguntas
             {
                 InsertPontos(NomeJogador, _totalPontos);
 

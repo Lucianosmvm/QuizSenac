@@ -6,6 +6,8 @@
       mc:Ignorable="d"
       Title="BemVindo">
 
+
+
     <Grid Background="White">
         <Image x:Name="img_bemvindo"
                Stretch="Fill"
